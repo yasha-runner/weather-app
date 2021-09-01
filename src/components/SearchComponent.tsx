@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { setAlert } from '../store/actions/alertAction';
 import { getWeather, setLoading } from '../store/actions/weatherActions';
 import { setCity } from '../store/actions/cityAction';
-import SaveCity from './SaveCity';
+import SaveCityComponent from './SaveCityComponent';
 
 interface SearchProps {
     title: string;
 }
 
-const Search: FC<SearchProps> = ({title}) => {
+const SearchComponent: FC<SearchProps> = ({title}) => {
     const dispatch = useDispatch();
     const [city, setCityState] = useState('');
 
@@ -49,11 +49,11 @@ const Search: FC<SearchProps> = ({title}) => {
                             style={{maxWidth: 300, margin: '0 auto'}}
                         >Search</button>
                     </form>
-                    <SaveCity />
+                    <SaveCityComponent />
                 </div>
             </div>
         </div>
     );
 }
 
-export default Search;
+export default SearchComponent;

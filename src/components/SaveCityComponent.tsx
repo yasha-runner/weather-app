@@ -7,7 +7,7 @@ interface ICity {
     key: string
 }
 
-const SaveCity: FC = () => {
+const SaveCityComponent: FC = () => {
     const cityName: string = useSelector((state: RootState) => state.city.name);
 
     const clickHandler = (e: MouseEvent<HTMLButtonElement>) => {
@@ -50,4 +50,4 @@ const SaveCity: FC = () => {
     );
 }
 
-export default SaveCity;
+export default SaveCityComponent;

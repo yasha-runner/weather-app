@@ -5,7 +5,7 @@ interface AlertProps {
     onClose: () => void
 }
 
-const Alert: FC<AlertProps> = ({ message, onClose }) => {
+const AlertComponent: FC<AlertProps> = ({ message, onClose }) => {
     return (
         <div className="modal is-active has-text-centered">
             <div className="modal-background" onClick={onClose}></div>
@@ -21,4 +21,4 @@ const Alert: FC<AlertProps> = ({ message, onClose }) => {
     );
 }
 
-export default Alert;
+export default AlertComponent;

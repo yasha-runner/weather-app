@@ -5,7 +5,7 @@ interface WeatherProps {
     data: WeatherData;
 }
 
-const Weather: FC<WeatherProps> = ({ data }) => {
+const WeatherComponent: FC<WeatherProps> = ({ data }) => {
     const celsius = (data.main.temp - 273.15).toFixed(1);
     
     return (
@@ -51,4 +51,4 @@ const Weather: FC<WeatherProps> = ({ data }) => {
     );
 }
 
-export default Weather;
+export default WeatherComponent;

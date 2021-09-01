@@ -10,7 +10,7 @@ import { getWeather, setLoading } from '../store/actions/weatherActions';
 Geocode.setApiKey(GOOGLE_MAPS_API_KEY);
 Geocode.enableDebug();
 
-const Location: FC = () => {
+const LocationComponent: FC = () => {
     const dispatch = useDispatch();  
 
     useEffect(() => {
@@ -51,4 +51,4 @@ const Location: FC = () => {
     );
 }
 
-export default Location;
+export default LocationComponent;
