@@ -2,6 +2,7 @@ import React, { FC, FormEvent, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { setAlert } from '../store/actions/alertAction';
 import { getWeather, setLoading } from '../store/actions/weatherActions';
+import { setCity } from '../store/actions/cityAction';
 import SaveCity from './SaveCity';
 
 interface SearchProps {
@@ -10,10 +11,10 @@ interface SearchProps {
 
 const Search: FC<SearchProps> = ({title}) => {
     const dispatch = useDispatch();
-    const [city, setCity] = useState('');
+    const [city, setCityState] = useState('');
 
     const changeHandler = (e: FormEvent<HTMLInputElement>) => {
-        setCity(e.currentTarget.value);
+        setCityState(e.currentTarget.value);
     }
 
     const submitHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -24,8 +25,9 @@ const Search: FC<SearchProps> = ({title}) => {
         }
 
         dispatch(setLoading());
+        dispatch(setCity(city));
         dispatch(getWeather(city));
-        setCity('');
+        setCityState('');
     };
 
     return (
@@ -46,8 +48,8 @@ const Search: FC<SearchProps> = ({title}) => {
                             className="button is-primary is-fullwidth"
                             style={{maxWidth: 300, margin: '0 auto'}}
                         >Search</button>
-                        <SaveCity />
                     </form>
+                    <SaveCity />
                 </div>
             </div>
         </div>

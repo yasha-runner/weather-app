@@ -90,5 +90,5 @@ export interface ICityAction {
 }
 
 export interface ICityState {
-    city: string;
+    name: string;
 }
