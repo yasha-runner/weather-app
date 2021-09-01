@@ -6,6 +6,7 @@ import { RootState } from './store';
 import Search from './components/Search';
 import Alert from './components/Alert';
 import Weather from './components/Weather';
+import Location from './components/Location';
 import { setAlert } from './store/actions/alertAction';
 import { setError } from './store/actions/weatherActions';
 
@@ -18,6 +19,7 @@ const App: FC = () => {
 
   return (
     <div className="has-text-centered">
+      <Location />
       <Search title="Enter city name and press search button" />
       {loading ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherData && <Weather data={weatherData} />}
       

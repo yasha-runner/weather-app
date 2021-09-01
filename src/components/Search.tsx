@@ -2,6 +2,7 @@ import React, { FC, FormEvent, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { setAlert } from '../store/actions/alertAction';
 import { getWeather, setLoading } from '../store/actions/weatherActions';
+import SaveCity from './SaveCity';
 
 interface SearchProps {
     title: string;
@@ -45,6 +46,7 @@ const Search: FC<SearchProps> = ({title}) => {
                             className="button is-primary is-fullwidth"
                             style={{maxWidth: 300, margin: '0 auto'}}
                         >Search</button>
+                        <SaveCity />
                     </form>
                 </div>
             </div>

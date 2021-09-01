@@ -2,6 +2,7 @@ export const GET_WEATHER = 'GET_WEATHER';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_ALERT = 'SET_ALERT';
+export const SET_CITY = 'SET_CITY';
 
 export interface Weather {
     description: string;
@@ -72,14 +73,22 @@ interface SetErrorAction {
     payload: string;
 }
 
-export interface AlertAction {
+export type WeatherAction = GetWeatherAction | SetLoadingAction | SetErrorAction;
+
+export interface IAlertAction {
     type: typeof SET_ALERT;
     payload: string;
 }
 
-export interface AlertState {
+export interface IAlertState {
     message: string;
 }
 
-export type WeatherAction = GetWeatherAction | SetLoadingAction | SetErrorAction;
+export interface ICityAction {
+    type: typeof SET_CITY;
+    payload: string;
+}
 
+export interface ICityState {
+    city: string;
+}

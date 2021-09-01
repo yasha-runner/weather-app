@@ -1,10 +1,10 @@
-import { AlertState, AlertAction, SET_ALERT } from "../types";
+import { IAlertState, IAlertAction, SET_ALERT } from "../types";
 
-const initialState: AlertState = {
+const initialState: IAlertState = {
     message: ''
 }
 
-export default (state = initialState, action: AlertAction): AlertState => {
+export default (state = initialState, action: IAlertAction): IAlertState => {
     switch(action.type) {
         case SET_ALERT:
             return {
