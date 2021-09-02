@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import '../App.css';
-
+import '../style/App.css';
 import { RootState } from '../store';
 import SearchComponent from './SearchComponent';
 import AlertComponent from './AlertComponent';

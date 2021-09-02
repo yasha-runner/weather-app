@@ -1,0 +1,7 @@
+nav.navbar {
+    background: linear-gradient(to top right, #524ad0 10%, #D099FA)
+}
+
+.level .level-item {
+    margin-bottom: 50px !important;
+}
