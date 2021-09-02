@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {   BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './style/App.css';
 
 import DefaultComponent from './components/DefaultComponent';
@@ -26,7 +26,6 @@ const App: FC = () => {
 
             <div id="navbarBasicExample" className="navbar-menu">
               <div className="navbar-start">
-                <Link className="navbar-item has-text-white is-hovered" to="/">DefaultComponent</Link>
                 <Link className="navbar-item has-text-white is-hovered" to="/search">SearchComponent</Link>
               </div>
 

@@ -1,15 +1,23 @@
-import { ICityState, ICityAction, SET_CITY } from "../types";
+import { ICity, ICityState, ICityAction, SET_CITIES, SET_CURRENT_CITY } from "../types";
 
 const initialState: ICityState = {
-    name: ''
+    currentCity: '',
+    cities: [] as ICity[]
 }
 
 export default (state = initialState, action: ICityAction): ICityState => {
     switch(action.type) {
-        case SET_CITY:
+        case SET_CURRENT_CITY:
             return {
-                name: action.payload
+                ...state,
+                currentCity: action.payload
             }
+        case SET_CITIES: {
+            return {
+                ...state,
+                cities: action.payload
+            }
+        }
         default:
             return state;
     }

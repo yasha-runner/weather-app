@@ -1,12 +1,12 @@
-import { WeatherState, WeatherAction, GET_WEATHER, SET_LOADING, SET_ERROR } from "../types";
+import { IWeatherState, IWeatherAction, GET_WEATHER, SET_LOADING, SET_ERROR } from "../types";
 
-const initialState: WeatherState = {
+const initialState: IWeatherState = {
     data: null,
     loading: false,
     error: ''
 }
 
-export default (state = initialState, action: WeatherAction): WeatherState => {
+export default (state = initialState, action: IWeatherAction): IWeatherState => {
     switch(action.type) {
         case GET_WEATHER:
             return {

@@ -1,14 +1,10 @@
 import React, { FC, MouseEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
-
-interface ICity {
-    name: string,
-    key: string
-}
+import { ICity } from '../store/types';
 
 const SaveCityComponent: FC = () => {
-    const cityName: string = useSelector((state: RootState) => state.city.name);
+    const cityName: string = useSelector((state: RootState) => state.city.currentCity);
 
     const clickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();

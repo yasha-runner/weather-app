@@ -1,8 +1,15 @@
-import { ICityAction, SET_CITY } from "../types";
+import { ICityAction, SET_CURRENT_CITY, SET_CITIES, ICity } from "../types";
 
-export const setCity = (name: string): ICityAction => {
+export const setCurrentCity = (name: string): ICityAction => {
     return {
-        type: SET_CITY,
+        type: SET_CURRENT_CITY,
         payload: name
+    }
+}
+
+export const setCities = (cities: ICity[]): ICityAction => {
+    return {
+        type: SET_CITIES,
+        payload: cities
     }
 }

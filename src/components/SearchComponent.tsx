@@ -2,7 +2,7 @@ import React, { FC, FormEvent, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { setAlert } from '../store/actions/alertAction';
 import { getWeather, setLoading } from '../store/actions/weatherActions';
-import { setCity } from '../store/actions/cityAction';
+import { setCurrentCity } from '../store/actions/cityAction';
 import SaveCityComponent from './SaveCityComponent';
 
 interface SearchProps {
@@ -25,7 +25,7 @@ const SearchComponent: FC<SearchProps> = ({title}) => {
         }
 
         dispatch(setLoading());
-        dispatch(setCity(city));
+        dispatch(setCurrentCity(city));
         dispatch(getWeather(city));
         setCityState('');
     };

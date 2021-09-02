@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GOOGLE_MAPS_API_KEY } from '../constant';
 import { RootState } from '../store';
 import { setAlert } from '../store/actions/alertAction';
-import { setCity } from '../store/actions/cityAction';
+import { setCurrentCity } from '../store/actions/cityAction';
 import { getWeather, setLoading } from '../store/actions/weatherActions';
 
 Geocode.setApiKey(GOOGLE_MAPS_API_KEY);
@@ -13,7 +13,7 @@ Geocode.enableDebug();
 
 const LocationComponent: FC = () => {
     const dispatch = useDispatch();
-    const city: string = useSelector((state: RootState) => state.city.name);
+    const city: string = useSelector((state: RootState) => state.city.currentCity);
 
     useEffect(() => {
         if (city === '') {
@@ -26,7 +26,7 @@ const LocationComponent: FC = () => {
                         if (city === undefined)
                             dispatch(setAlert('City ​​not found!'));
                         else {
-                            dispatch(setCity(city));
+                            dispatch(setCurrentCity(city));
                             dispatch(setLoading());
                             dispatch(getWeather(city));
                         }

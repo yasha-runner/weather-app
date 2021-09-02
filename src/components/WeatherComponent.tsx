@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { WeatherData } from "../store/types";
+import { IWeatherData } from "../store/types";
 
 interface WeatherProps {
-    data: WeatherData;
+    data: IWeatherData;
 }
 
 const WeatherComponent: FC<WeatherProps> = ({ data }) => {
