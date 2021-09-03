@@ -26,19 +26,12 @@ const App: FC = () => {
 
             <div id="navbarBasicExample" className="navbar-menu">
               <div className="navbar-start">
-                <Link className="navbar-item has-text-white is-hovered" to="/search">SearchComponent</Link>
+                <Link className="navbar-item has-text-white" to="/search">SearchComponent</Link>
               </div>
 
               <div className="navbar-end">
                 <div className="navbar-item">
-                  <div className="buttons">
-                    <a className="button is-primary">
-                      <strong>Sign up</strong>
-                    </a>
-                    <a className="button is-light">
-                      Log in
-                    </a>
-                  </div>
+                  <SearchComponent />
                 </div>
               </div>
             </div>
@@ -49,7 +42,7 @@ const App: FC = () => {
               <DefaultComponent />
             </Route>
             <Route path="/search">
-              <SearchComponent title="NEW SearchComponent" />
+              <SearchComponent />
             </Route>
           </Switch>
         </div>

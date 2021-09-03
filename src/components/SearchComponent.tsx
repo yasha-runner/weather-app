@@ -3,13 +3,8 @@ import { useDispatch } from 'react-redux';
 import { setAlert } from '../store/actions/alertAction';
 import { getWeather, setLoading } from '../store/actions/weatherActions';
 import { setCurrentCity } from '../store/actions/cityAction';
-import SaveCityComponent from './SaveCityComponent';
 
-interface SearchProps {
-    title: string;
-}
-
-const SearchComponent: FC<SearchProps> = ({title}) => {
+const SearchComponent: FC = () => {
     const dispatch = useDispatch();
     const [city, setCityState] = useState('');
 
@@ -31,27 +26,23 @@ const SearchComponent: FC<SearchProps> = ({title}) => {
     };
 
     return (
-        <div className="hero is-light has-text-centered">
-            <div className="hero-body">
-                <div className="container">
-                    <h1 className="title">{title}</h1>
-                    <form className="py-5" onSubmit={submitHandler}>
+        <div>
+            <form onSubmit={submitHandler} >
+                <div className="field is-grouped" style={{maxWidth: 300}}>
+                    <p className="control is-expanded">
                         <input
+                            className="input"
                             type="text"
-                            className="input has-text-centered mb-2"
                             placeholder="City"
-                            style={{maxWidth: 300}}
                             value={city}
                             onChange={changeHandler}
                         />
-                        <button
-                            className="button is-primary is-fullwidth"
-                            style={{maxWidth: 300, margin: '0 auto'}}
-                        >Search</button>
-                    </form>
-                    <SaveCityComponent />
+                    </p>
+                    <p className="control">
+                        <button className="button is-primary is-fullwidth">Search</button>
+                    </p>
                 </div>
-            </div>
+            </form>
         </div>
     );
 }

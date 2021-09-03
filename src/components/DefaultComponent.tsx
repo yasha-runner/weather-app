@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../style/App.css';
 import { RootState } from '../store';
-import SearchComponent from './SearchComponent';
 import AlertComponent from './AlertComponent';
 import WeatherComponent from './WeatherComponent';
 import LocationComponent from './LocationComponent';
@@ -19,7 +18,6 @@ const DefaultComponent: FC = () => {
   return (
     <div className="has-text-centered">
       <LocationComponent />
-      <SearchComponent title="Enter city name and press search button" />
       {loading ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherData && <WeatherComponent data={weatherData} />}
       
       {alertMessage && <AlertComponent message={alertMessage} onClose={() => dispatch(setAlert(''))} />}

@@ -2,6 +2,11 @@ nav.navbar {
     background: linear-gradient(to top right, #524ad0 10%, #D099FA)
 }
 
+nav.navbar a.navbar-item.has-text-white:hover,
+nav.navbar a.navbar-item.has-text-white:focus {
+    color: #524ad0 !important;
+}
+
 .level .level-item {
     margin-bottom: 50px !important;
 }
