@@ -4,6 +4,7 @@ import './style/App.css';
 
 import DefaultComponent from './components/DefaultComponent';
 import SearchComponent from './components/SearchComponent';
+import SaveCityComponent from './components/SaveCityComponent';
 
 const App: FC = () => {
   return (
@@ -26,12 +27,17 @@ const App: FC = () => {
 
             <div id="navbarBasicExample" className="navbar-menu">
               <div className="navbar-start">
-                <Link className="navbar-item has-text-white" to="/search">SearchComponent</Link>
+                <Link className="navbar-item has-text-white" to="/">Today</Link>
+                <Link className="navbar-item has-text-white" to="/">Tomorrow</Link>
+                <Link className="navbar-item has-text-white" to="/">Week</Link>
               </div>
 
               <div className="navbar-end">
                 <div className="navbar-item">
                   <SearchComponent />
+                </div>
+                <div className="navbar-item">
+                  <SaveCityComponent />
                 </div>
               </div>
             </div>
@@ -40,9 +46,6 @@ const App: FC = () => {
           <Switch>
             <Route exact path="/">
               <DefaultComponent />
-            </Route>
-            <Route path="/search">
-              <SearchComponent />
             </Route>
           </Switch>
         </div>

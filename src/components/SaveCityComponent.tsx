@@ -40,7 +40,9 @@ const SaveCityComponent: FC = () => {
     }
 
     return (
-        <button className="button is-primary" onClick={clickHandler}>Save city</button>
+        <div>
+            <button className="button is-primary" onClick={clickHandler}>Save city</button> 
+        </div>
     );
 }
 

@@ -7,7 +7,6 @@ import WeatherComponent from './WeatherComponent';
 import LocationComponent from './LocationComponent';
 import { setAlert } from '../store/actions/alertAction';
 import { setError } from '../store/actions/weatherActions';
-import SaveCityComponent from './SaveCityComponent';
 import CitiesListComponent from './CitiesListComponent';
 
 const DefaultComponent: FC = () => {
@@ -20,8 +19,8 @@ const DefaultComponent: FC = () => {
   return (
     <div className="has-text-centered">
       <LocationComponent />
-      <SaveCityComponent />
       {loading ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherData && <WeatherComponent data={weatherData} />}
+      <hr className="m-0"/>
       <CitiesListComponent />
       
       {alertMessage && <AlertComponent message={alertMessage} onClose={() => dispatch(setAlert(''))} />}

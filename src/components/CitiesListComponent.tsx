@@ -40,11 +40,16 @@ const CitiesListComponent: FC = () => {
 
     return (
         <div>
-            {
-                cities === '' ?
-                    <h2 className="is-size-3 py-2">List of cities is empty</h2> :
-                    <CitiesList />
-            }
+            <section className="section">
+                <div className="container">
+                    <h1 className="title has-text-centered" style={{marginBottom: 50}}>Saved cities</h1>
+                    {
+                        cities === '' ?
+                            <h2 className="is-size-3 py-2">List of cities is empty</h2> :
+                            <CitiesList />
+                    }
+                </div>
+            </section>
         </div>
     );
 }
