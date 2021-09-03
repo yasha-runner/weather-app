@@ -6,3 +6,11 @@ nav.navbar a.navbar-item.has-text-white:hover,
 nav.navbar a.navbar-item.has-text-white:focus {
     color: #524ad0 !important;
 }
+
+.city.tile.is-parent {
+    flex-basis: 25%;
+}
+
+.city.tile.is-parent .box {
+    background: linear-gradient(to top right, #524ad0 10%, #D099FA)
+}

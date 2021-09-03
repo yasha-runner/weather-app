@@ -18,23 +18,26 @@ const CitiesListComponent: FC = () => {
         }
     });
 
-    const clickHandler = (e: MouseEvent<HTMLLIElement>) => {
+    const clickHandler = (e: MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
         console.log(e.currentTarget.textContent);
     };
 
     const CitiesList = () => {
         const citiesList: ICity[] = JSON.parse(cities) || [];
-        const listItems = citiesList.map((city: ICity) =>
-            <li key={city.key} onClick={clickHandler}>
-                {city.name}
-            </li>
+        const items = citiesList.map((city: ICity) =>
+            <div key={city.key} className="city tile is-parent is-clickable" onClick={clickHandler}>
+                <article className="tile is-child box">
+                    <p className="title has-text-white">{city.name}</p>
+                </article>
+            </div>
+
         );
 
         return (
-          <ul>
-            {listItems}
-          </ul>
+          <>
+            {items}
+          </>
         );
       }
 
@@ -45,8 +48,10 @@ const CitiesListComponent: FC = () => {
                     <h1 className="title has-text-centered" style={{marginBottom: 50}}>Saved cities</h1>
                     {
                         cities === '' ?
-                            <h2 className="is-size-3 py-2">List of cities is empty</h2> :
-                            <CitiesList />
+                            <h2 className="has-text-centered is-size-3">List of cities is empty</h2> :
+                            <div className="tile is-ancestor has-text-centered is-flex-wrap-wrap">
+                                <CitiesList />
+                            </div>
                     }
                 </div>
             </section>
