@@ -3,7 +3,7 @@ import { RootState } from "..";
 import { API_KEY } from "../../constant";
 import { GET_WEATHER, SET_ERROR, SET_LOADING, IWeatherAction, IWeatherData, IWeatherError } from "../types";
 
-export const getWeather = (city: string): ThunkAction<void, RootState, null, IWeatherAction> => {
+export const getWeatherNow = (city: string): ThunkAction<void, RootState, null, IWeatherAction> => {
     return async dispatch => {
         try {
             const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);

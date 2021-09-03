@@ -1,8 +1,8 @@
 import React, { FC, FormEvent, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { setAlert } from '../store/actions/alertAction';
-import { getWeather, setLoading } from '../store/actions/weatherActions';
-import { setCurrentCity } from '../store/actions/cityAction';
+import { getWeatherNow, setLoading } from '../store/actions/weatherNowActions';
+import { getWeatherDay } from '../store/actions/weatherDayAction';
 
 const SearchComponent: FC = () => {
     const dispatch = useDispatch();
@@ -20,8 +20,8 @@ const SearchComponent: FC = () => {
         }
 
         dispatch(setLoading());
-        dispatch(setCurrentCity(city));
-        dispatch(getWeather(city));
+        dispatch(getWeatherNow(city));
+        dispatch(getWeatherDay(city));
         setCityState('');
     };
 

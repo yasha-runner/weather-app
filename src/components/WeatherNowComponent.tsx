@@ -1,11 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentCity } from "../store/actions/cityAction";
 import { IWeatherData } from "../store/types";
 
 interface WeatherProps {
     data: IWeatherData;
 }
 
-const WeatherComponent: FC<WeatherProps> = ({ data }) => {
+const WeatherNowComponent: FC<WeatherProps> = ({ data }) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setCurrentCity(data.name));
+    }, []);
+
     const celsius = (data.main.temp - 273.15).toFixed(1);
     
     return (
@@ -51,4 +59,4 @@ const WeatherComponent: FC<WeatherProps> = ({ data }) => {
     );
 }
 
-export default WeatherComponent;
+export default WeatherNowComponent;

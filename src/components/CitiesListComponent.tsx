@@ -18,20 +18,14 @@ const CitiesListComponent: FC = () => {
         }
     });
 
-    const clickHandler = (e: MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        console.log(e.currentTarget.textContent);
-    };
-
     const CitiesList = () => {
         const citiesList: ICity[] = JSON.parse(cities) || [];
         const items = citiesList.map((city: ICity) =>
-            <div key={city.key} className="city tile is-parent is-clickable" onClick={clickHandler}>
-                <article className="tile is-child box">
+            <div key={city.key} className="city tile is-parent">
+                <a className="tile is-child box is-clickable" href={`/Today/${city.name}`}>
                     <p className="title has-text-white">{city.name}</p>
-                </article>
+                </a>
             </div>
-
         );
 
         return (

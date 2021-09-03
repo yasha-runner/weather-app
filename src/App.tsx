@@ -5,8 +5,14 @@ import './style/App.css';
 import DefaultComponent from './components/DefaultComponent';
 import SearchComponent from './components/SearchComponent';
 import SaveCityComponent from './components/SaveCityComponent';
+import { useSelector } from 'react-redux';
+import { RootState } from './store';
+import DayComponent from './components/DayComponent';
+import WeekComponent from './components/WeekComponent';
 
 const App: FC = () => {
+  const city: string = useSelector((state: RootState) => state.city.currentCity);
+
   return (
     <div className="App">
 
@@ -27,9 +33,9 @@ const App: FC = () => {
 
             <div id="navbarBasicExample" className="navbar-menu">
               <div className="navbar-start">
-                <Link className="navbar-item has-text-white" to="/">Today</Link>
-                <Link className="navbar-item has-text-white" to="/">Tomorrow</Link>
-                <Link className="navbar-item has-text-white" to="/">Week</Link>
+                <Link className="navbar-item has-text-white" to={`/Today/${city}`}>Today</Link>
+                <Link className="navbar-item has-text-white" to={`/Tomorrow/${city}`}>Tomorrow</Link>
+                {/* <Link className="navbar-item has-text-white" to={`/Week/${city}`}>Week</Link> */}
               </div>
 
               <div className="navbar-end">
@@ -44,9 +50,10 @@ const App: FC = () => {
           </nav> 
 
           <Switch>
-            <Route exact path="/">
-              <DefaultComponent />
-            </Route>
+            <Route exact path="/" render={() => <DefaultComponent /> } />
+            <Route path="/:day/:city" render={(props) => <DayComponent {...props} /> }/>
+            <Route path="/:day/:city" render={(props) => <DayComponent {...props} /> }/>
+            {/* <Route path="/Week/:city" render={(props) => <WeekComponent {...props} /> }/> */}
           </Switch>
         </div>
       </Router>
