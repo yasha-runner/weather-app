@@ -92,7 +92,7 @@ export interface ICity {
 
 export interface ICityState {
     currentCity: string;
-    cities: ICity[];
+    cities: string;
 }
 
 interface ICurrentCityAction {
@@ -102,7 +102,7 @@ interface ICurrentCityAction {
 
 interface ICitiesAction {
     type: typeof SET_CITIES;
-    payload: ICity[];
+    payload: string;
 }
 
 export type ICityAction = ICurrentCityAction | ICitiesAction;

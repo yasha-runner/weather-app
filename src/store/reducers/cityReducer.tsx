@@ -2,7 +2,7 @@ import { ICity, ICityState, ICityAction, SET_CITIES, SET_CURRENT_CITY } from "..
 
 const initialState: ICityState = {
     currentCity: '',
-    cities: [] as ICity[]
+    cities: ''
 }
 
 export default (state = initialState, action: ICityAction): ICityState => {

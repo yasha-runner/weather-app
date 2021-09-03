@@ -1,22 +1,23 @@
 import React, { FC, MouseEvent } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
+import { setCities } from '../store/actions/cityAction';
 import { ICity } from '../store/types';
 
 const SaveCityComponent: FC = () => {
+    const dispatch = useDispatch();
     const cityName: string = useSelector((state: RootState) => state.city.currentCity);
+    const citiesStr: string = useSelector((state: RootState) => state.city.cities);
 
     const clickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-        const storage = localStorage.getItem('cities');
-
         let cities: ICity[] = [];
-        if (storage !== null)
-            cities = JSON.parse(storage)
+        if (citiesStr !== '') {
+            cities = JSON.parse(citiesStr);
+        }
 
         let city = cities.find(city => city.name === cityName)
-
         if (city === undefined) {
             city = {
                 key: getGuid(),
@@ -25,7 +26,8 @@ const SaveCityComponent: FC = () => {
 
             cities.push(city);
         }
-    
+
+        dispatch(setCities(JSON.stringify(cities)));
         localStorage.setItem('cities', JSON.stringify(cities));
     };
 
@@ -38,11 +40,7 @@ const SaveCityComponent: FC = () => {
     }
 
     return (
-        <button
-            className="button is-primary is-fullwidth"
-            style={{maxWidth: 300, margin: '0 auto'}}
-            onClick={clickHandler}
-        >Save city</button>
+        <button className="button is-primary" onClick={clickHandler}>Save city</button>
     );
 }
 

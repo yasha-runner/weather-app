@@ -7,7 +7,7 @@ export const setCurrentCity = (name: string): ICityAction => {
     }
 }
 
-export const setCities = (cities: ICity[]): ICityAction => {
+export const setCities = (cities: string): ICityAction => {
     return {
         type: SET_CITIES,
         payload: cities
