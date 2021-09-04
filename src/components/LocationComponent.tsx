@@ -2,12 +2,11 @@ import React, { FC } from 'react';
 import { useEffect } from 'react';
 import Geocode from "react-geocode";
 import { useDispatch, useSelector } from 'react-redux';
-import { GOOGLE_MAPS_API_KEY } from '../constant';
 import { RootState } from '../store';
 import { setAlert } from '../store/actions/alertAction';
 import { getWeatherNow, setLoading } from '../store/actions/weatherNowActions';
 
-Geocode.setApiKey(GOOGLE_MAPS_API_KEY);
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 Geocode.enableDebug();
 
 const LocationComponent: FC = () => {
