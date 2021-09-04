@@ -5,6 +5,7 @@ import { setAlert } from "../store/actions/alertAction";
 import { getWeatherDay, setError } from "../store/actions/weatherDayAction";
 import { getWeatherNow } from "../store/actions/weatherNowActions";
 import AlertComponent from "./AlertComponent";
+import MapComponent from "./MapComponent";
 import WeatherDayComponent from "./WeatherDayComponent";
 import WeatherNowComponent from "./WeatherNowComponent";
 
@@ -41,10 +42,10 @@ const DayComponent = (props) => {
                         <div className="column is-4">
                             <h1 className="title m-0">{day}</h1>
                             <h2 className="is-size-4">{date.toDateString()}</h2>
-                            {loadingDay ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherDayData && <WeatherDayComponent data={weatherDayData} date={date} />}
+                            {loadingDay ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherDayData && <WeatherDayComponent data={weatherDayData.list} date={date} />}
                         </div>
-                        <div className="column is-8">
-                            <h2 className="is-size-4">MAP</h2>
+                        <div className="column is-8 is-relative" style={{minHeight: '350px'}}>
+                            {loadingNow || loadingDay ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherNowData && weatherDayData && <MapComponent data={weatherNowData} coord={weatherDayData.city.coord} />}
                         </div>
                     </div>
                 </div>

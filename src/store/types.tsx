@@ -143,7 +143,20 @@ interface ICitiesAction {
 export type ICityAction = ICurrentCityAction | ICitiesAction;
 
 export interface IWeatherDayData {
-    list: IWeatherDay[]
+    list: IWeatherDay[],
+    city: {
+        id: number;
+        name: string;
+        coord: {
+            lat: number;
+            lon: number;
+        };
+        country: string;
+        population: number;
+        timezone: number;
+        sunrise: number;
+        sunset: number;
+    };
 }
 
 export interface IWeatherDay {

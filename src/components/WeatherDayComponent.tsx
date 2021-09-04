@@ -1,22 +1,21 @@
 import React, { FC } from "react";
-import { IWeatherDay, IWeatherDayData } from "../store/types";
+import { IWeatherDay } from "../store/types";
 
-interface WeatherProps {
-    data: IWeatherDayData;
+interface IWeatherProps {
+    data: IWeatherDay[];
     date: Date
 }
 
-const WeatherDayComponent: FC<WeatherProps> = ({ data, date }) => {  
+const WeatherDayComponent: FC<IWeatherProps> = ({ data, date }) => {  
     const WeatherDayTable = () => {
-        const weatherDayList: IWeatherDay[] = data.list;
-        let day = weatherDayList.filter((weather: IWeatherDay) => {
+        let day = data.filter((weather: IWeatherDay) => {
             const weatherDate = new Date(weather.dt * 1000);
             return date.toDateString() == weatherDate.toDateString()
         });
         const items: JSX.Element[] = day.map((weather) => {
             const weatherDate = new Date(weather.dt * 1000);
             const celsius = (weather.main.temp - 273.15).toFixed(1);
-            return <tr>
+            return <tr key={weather.dt}>
                 <td>{weatherDate.toLocaleTimeString()}</td>
                 <td>{celsius}<sup>o</sup>C, {weather.weather[0].main}, Wind - {weather.wind.speed} m/s</td>
             </tr>
