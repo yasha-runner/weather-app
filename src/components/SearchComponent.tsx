@@ -36,6 +36,7 @@ const SearchComponent: FC = () => {
                             placeholder="City"
                             value={city}
                             onChange={changeHandler}
+                            autoComplete="on"
                         />
                     </p>
                     <p className="control">
