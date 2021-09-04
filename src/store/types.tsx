@@ -78,39 +78,6 @@ interface ISetErrorAction {
 
 export type IWeatherAction = IGetWeatherAction | ISetLoadingAction | ISetErrorAction;
 
-export interface IWeatherDayData {
-    dt: number;
-    main: {
-        temp: number;
-        feels_like: number;
-        temp_min: number;
-        temp_max: number;
-        pressure: number;
-        sea_level: number;
-        grnd_level: number;
-        humidity: number;
-        temp_kf: number;
-    };
-    weather: IWeather[];
-    clouds: {
-        all: number;
-    };
-    wind: {
-        speed: number;
-        deg: number;
-        gust: number;
-    };
-    visibility: number;
-    pop: number;
-    rain: {
-        '3h': number;
-    };
-    sys: {
-        pod: string;
-    };
-    dt_txt: string;
-}
-
 export interface IAlertAction {
     type: typeof SET_ALERT;
     payload: string;
@@ -121,18 +88,26 @@ export interface IAlertState {
 }
 
 export interface ICity {
-    name: string,
-    key: string
+    name: string;
+    key: string;
+}
+
+export interface ICurrentCity {
+    name: string;
+    coord: {
+        lon: number;
+        lat: number;
+    }
 }
 
 export interface ICityState {
-    currentCity: string;
+    currentCity: ICurrentCity;
     cities: string;
 }
 
 interface ICurrentCityAction {
     type: typeof SET_CURRENT_CITY;
-    payload: string;
+    payload: ICurrentCity;
 }
 
 interface ICitiesAction {
@@ -204,3 +179,54 @@ interface IGetWeatherDayAction {
 }
 
 export type IWeatherDayAction = IGetWeatherDayAction | ISetLoadingAction | ISetErrorAction;
+
+export interface IWeatherWeekData {
+    daily: IWeatherDaily[]
+}
+
+export interface IWeatherDaily {
+    dt: number;
+    sunrise: number;
+    sunset: number;
+    moonrise: number;
+    moonset: number;
+    moon_phase: number;
+    temp: {
+        day: number;
+        min: number;
+        max: number;
+        night: number;
+        eve: number;
+        morn: number;
+    };
+    feels_like: {
+        day: number;
+        night: number;
+        eve: number;
+        morn: number;
+    };
+    pressure: number;
+    humidity: number;
+    dew_point: number;
+    wind_speed: number;
+    wind_deg: number;
+    wind_gust: number;
+    weather: IWeather[];
+    clouds: number;
+    pop: number;
+    rain: number;
+    uvi: number;
+}
+
+export interface IWeatherWeekState {
+    data: IWeatherWeekData | null;
+    loading: boolean;
+    error: string;
+}
+
+interface IGetWeatherWeekAction {
+    type: typeof GET_WEATHER_WEEK;
+    payload: IWeatherWeekData;
+}
+
+export type IWeatherWeekAction = IGetWeatherWeekAction | ISetLoadingAction | ISetErrorAction;

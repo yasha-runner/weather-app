@@ -11,7 +11,13 @@ const WeatherNowComponent: FC<WeatherProps> = ({ data }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setCurrentCity(data.name));
+        dispatch(setCurrentCity({
+            name: data.name,
+            coord: {
+                lon: data.coord.lon,
+                lat: data.coord.lat
+            }
+        }));
     }, []);
 
     const celsius = (data.main.temp - 273.15).toFixed(1);

@@ -12,7 +12,7 @@ Geocode.enableDebug();
 
 const LocationComponent: FC = () => {
     const dispatch = useDispatch();
-    const city: string = useSelector((state: RootState) => state.city.currentCity);
+    const city: string = useSelector((state: RootState) => state.city.currentCity.name);
 
     useEffect(() => {
         if (city === '') {

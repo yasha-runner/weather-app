@@ -33,7 +33,7 @@ const CitiesListComponent: FC = () => {
             {items}
           </>
         );
-      }
+    }
 
     return (
         <div>

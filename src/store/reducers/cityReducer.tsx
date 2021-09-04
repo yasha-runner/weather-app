@@ -1,7 +1,13 @@
 import { ICity, ICityState, ICityAction, SET_CITIES, SET_CURRENT_CITY } from "../types";
 
 const initialState: ICityState = {
-    currentCity: '',
+    currentCity: {
+        name: '',
+        coord: {
+            lon: 0,
+            lat: 0
+        }
+    },
     cities: ''
 }
 

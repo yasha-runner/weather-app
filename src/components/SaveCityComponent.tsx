@@ -6,7 +6,7 @@ import { ICity } from '../store/types';
 
 const SaveCityComponent: FC = () => {
     const dispatch = useDispatch();
-    const cityName: string = useSelector((state: RootState) => state.city.currentCity);
+    const cityName: string = useSelector((state: RootState) => state.city.currentCity.name);
     const citiesStr: string = useSelector((state: RootState) => state.city.cities);
 
     const clickHandler = (e: MouseEvent<HTMLButtonElement>) => {

@@ -45,7 +45,7 @@ const DayComponent = (props) => {
                             {loadingDay ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherDayData && <WeatherDayComponent data={weatherDayData.list} date={date} />}
                         </div>
                         <div className="column is-8 is-relative" style={{minHeight: '350px'}}>
-                            {loadingNow || loadingDay ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherNowData && weatherDayData && <MapComponent data={weatherNowData} coord={weatherDayData.city.coord} />}
+                            {loadingNow ? <h2 className="is-size-3 py-2">Loading...</h2> : weatherNowData && <MapComponent data={weatherNowData} />}
                         </div>
                     </div>
                 </div>

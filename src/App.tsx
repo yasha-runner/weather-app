@@ -11,7 +11,7 @@ import DayComponent from './components/DayComponent';
 import WeekComponent from './components/WeekComponent';
 
 const App: FC = () => {
-  const city: string = useSelector((state: RootState) => state.city.currentCity);
+  const city: string = useSelector((state: RootState) => state.city.currentCity.name);
 
   return (
     <div className="App">
@@ -35,7 +35,7 @@ const App: FC = () => {
               <div className="navbar-start">
                 <Link className="navbar-item has-text-white" to={`/Today/${city}`}>Today</Link>
                 <Link className="navbar-item has-text-white" to={`/Tomorrow/${city}`}>Tomorrow</Link>
-                {/* <Link className="navbar-item has-text-white" to={`/Week/${city}`}>Week</Link> */}
+                <Link className="navbar-item has-text-white" to={`/Week/${city}`}>Week</Link>
               </div>
 
               <div className="navbar-end">
@@ -51,9 +51,8 @@ const App: FC = () => {
 
           <Switch>
             <Route exact path="/" render={() => <DefaultComponent /> } />
-            <Route path="/:day/:city" render={(props) => <DayComponent {...props} /> }/>
-            <Route path="/:day/:city" render={(props) => <DayComponent {...props} /> }/>
-            {/* <Route path="/Week/:city" render={(props) => <WeekComponent {...props} /> }/> */}
+            <Route path="/Week/:city" render={(props) => <WeekComponent {...props} /> }/>
+            <Route path="/:day/:city" render={(props) => <DayComponent {...props} /> }/>           
           </Switch>
         </div>
       </Router>

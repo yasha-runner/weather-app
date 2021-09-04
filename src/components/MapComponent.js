@@ -5,7 +5,6 @@ import { GOOGLE_MAPS_API_KEY } from "../constant";
 const MapComponent = (props) => {
     const [activeMarker, setActiveMarker] = useState({});
     const [visibleInfoWindow, setVisibleInfoWindow] = useState(false);
-    const location = props.coord;
     const weather = props.data;
 
     const onMarkerClick = (props, marker, e) => {
@@ -19,8 +18,8 @@ const MapComponent = (props) => {
         <Map
             google={props.google}
             initialCenter={{
-                lat: location.lat,
-                lng: location.lon
+                lat: weather.coord.lat,
+                lng: weather.coord.lon
             }}
             zoom={12}
         >
