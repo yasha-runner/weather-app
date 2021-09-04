@@ -1,6 +1,5 @@
 import React, { useState} from "react";
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from "google-maps-react";
-import { GOOGLE_MAPS_API_KEY } from "../constant";
 
 const MapComponent = (props) => {
     const [activeMarker, setActiveMarker] = useState({});
@@ -40,5 +39,5 @@ const MapComponent = (props) => {
 }
 
 export default GoogleApiWrapper({
-    apiKey: (GOOGLE_MAPS_API_KEY)
+    apiKey: (process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
 })(MapComponent)
